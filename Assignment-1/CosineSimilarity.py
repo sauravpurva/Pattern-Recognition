@@ -1,8 +1,10 @@
+#Assignment-1
+#By GROUP-1
 import math
 import re
 from collections import Counter
 
-file1=open('doc1.txt','r')
+file1=open('doc1.txt','r') #opening files
 file2=open('doc2.txt','r')
 
 alpha=re.compile(r'\w+')
@@ -11,7 +13,7 @@ def ToVector(text):
 	words=alpha.findall(text)
 	return Counter(words)
 
-def cosine_similarity(vector1,vector2):
+def cosine_similarity(vector1,vector2):  #Main function
 	intersection=set(vector1.keys()) & set(vector2.keys())
 	numerator=sum([vector1[x]*vector2[x] for x in intersection])
 
@@ -27,8 +29,8 @@ def cosine_similarity(vector1,vector2):
 text1=file1.read()
 text2=file2.read()
 
-vector1=ToVector(text1)
+vector1=ToVector(text1) #Text to vector
 vector2=ToVector(text2)
 
 cosine=cosine_similarity(vector1,vector2)
-print ('cosine similarity:-',cosine) 
+print('cosine similarity:-',cosine) 
